@@ -4,8 +4,6 @@ Controller = require "#{root}/controller"
 
 class TestController extends Controller
 
-  @resource 'test'
-
   index: ->
 
   show: ->

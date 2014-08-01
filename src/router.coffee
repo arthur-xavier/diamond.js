@@ -5,7 +5,6 @@ Controller = require './controller'
 class Router
 
   constructor: (@server, callback) ->
-    @controllers = Controller.controllers
     callback.call @ if callback?
 
   resource: (name, param = "id") ->
@@ -35,7 +34,7 @@ class Router
   action: (action) ->
     [controller, action] = action.split('#')
     #controller =  controller.charAt(0).toUpperCase() + controller.slice(1) + "Controller"]
-    {controller: @controllers[controller].getInstance(), action: action}
+    {controller: Controller.controllers[controller].getInstance(), action: action}
 
   @route: (options) ->
     {controller, action} = options

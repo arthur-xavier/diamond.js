@@ -4,7 +4,11 @@ class Controller extends require './singleton'
 
   @controllers: {}
 
-  @resource: (name) ->
-    @controllers[name] = @
+  constructor: ->
+    @name = @constructor.name.split('Controller')[0].toLowerCase()
+    Controller.controllers[@name] = @constructor
+
+  #@resource: (name) ->
+  #  @controllers[name] = @
 
 module.exports = Controller

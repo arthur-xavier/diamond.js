@@ -3,12 +3,11 @@
 Diamond = require "#{root}/application"
 path = require 'path'
 
-require "#{dependencies}/controllers/testController"
-require "#{dependencies}/controllers/wineController"
-
 app = new Diamond ->
   @port = 3000
-  @server.use require('less-middleware')(path.join __dirname, 'public')
+
+  new (require "#{dependencies}/controllers/testController")
+  new (require "#{dependencies}/controllers/wineController")
 
   @router = new Diamond.Router @server, require "#{dependencies}/routes"
   

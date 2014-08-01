@@ -4,8 +4,6 @@ Controller = require "#{root}/controller"
 
 class WineController extends Controller
 
-  @resource 'wine'
-
   index: ->
     Wine.all (err, wines) =>
       @error err
