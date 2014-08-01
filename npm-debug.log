@@ -1,0 +1,120 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'publish' ]
+2 info using npm@1.4.14
+3 info using node@v0.10.29
+4 verbose node symlink /usr/bin/node
+5 verbose publish [ '.' ]
+6 verbose cache add [ '.', null ]
+7 verbose cache add name=undefined spec="." args=[".",null]
+8 verbose parsed url { protocol: null,
+8 verbose parsed url   slashes: null,
+8 verbose parsed url   auth: null,
+8 verbose parsed url   host: null,
+8 verbose parsed url   port: null,
+8 verbose parsed url   hostname: null,
+8 verbose parsed url   hash: null,
+8 verbose parsed url   search: null,
+8 verbose parsed url   query: null,
+8 verbose parsed url   pathname: '.',
+8 verbose parsed url   path: '.',
+8 verbose parsed url   href: '.' }
+9 silly lockFile 3a52ce78- .
+10 verbose lock . /home/xavier/.npm/3a52ce78-.lock
+11 verbose tar pack [ '/home/xavier/.npm/diamond/0.1.1/package.tgz', '.' ]
+12 verbose tarball /home/xavier/.npm/diamond/0.1.1/package.tgz
+13 verbose folder .
+14 info prepublish diamond@0.1.1
+15 verbose unsafe-perm in lifecycle true
+16 silly lockFile 1f1177db-tar tar://.
+17 verbose lock tar://. /home/xavier/.npm/1f1177db-tar.lock
+18 silly lockFile d93fec4e-er-npm-diamond-0-1-1-package-tgz tar:///home/xavier/.npm/diamond/0.1.1/package.tgz
+19 verbose lock tar:///home/xavier/.npm/diamond/0.1.1/package.tgz /home/xavier/.npm/d93fec4e-er-npm-diamond-0-1-1-package-tgz.lock
+20 silly lockFile 1f1177db-tar tar://.
+21 silly lockFile 1f1177db-tar tar://.
+22 silly lockFile d93fec4e-er-npm-diamond-0-1-1-package-tgz tar:///home/xavier/.npm/diamond/0.1.1/package.tgz
+23 silly lockFile d93fec4e-er-npm-diamond-0-1-1-package-tgz tar:///home/xavier/.npm/diamond/0.1.1/package.tgz
+24 silly lockFile 26e5ad21-xavier-npm-diamond-0-1-1-package /home/xavier/.npm/diamond/0.1.1/package
+25 verbose lock /home/xavier/.npm/diamond/0.1.1/package /home/xavier/.npm/26e5ad21-xavier-npm-diamond-0-1-1-package.lock
+26 silly lockFile 26e5ad21-xavier-npm-diamond-0-1-1-package /home/xavier/.npm/diamond/0.1.1/package
+27 silly lockFile 26e5ad21-xavier-npm-diamond-0-1-1-package /home/xavier/.npm/diamond/0.1.1/package
+28 silly lockFile 3a52ce78- .
+29 silly lockFile 3a52ce78- .
+30 silly publish { name: 'diamond',
+30 silly publish   description: 'MVC web framework',
+30 silly publish   version: '0.1.1',
+30 silly publish   author: { name: 'Arthur Xavier', email: 'xavier@dcc.ufmg.br' },
+30 silly publish   repository:
+30 silly publish    { type: 'git',
+30 silly publish      url: 'https://github.com/arthur-xavier/diamond.js.git' },
+30 silly publish   scripts:
+30 silly publish    { test: 'mocha test/test.coffee --compilers coffee:coffee-script/register',
+30 silly publish      prepublish: 'cake build' },
+30 silly publish   main: 'index.js',
+30 silly publish   license: 'MIT',
+30 silly publish   directories: { test: 'test' },
+30 silly publish   devDependencies:
+30 silly publish    { 'coffee-script': '^1.7.1',
+30 silly publish      mocha: '^1.21.3',
+30 silly publish      request: '^2.39.0',
+30 silly publish      should: '^4.0.4' },
+30 silly publish   dependencies: { express: '~4.2.0' },
+30 silly publish   gitHead: '88999ed340e755f58a957c09ef50914e78a6c265',
+30 silly publish   bugs: { url: 'https://github.com/arthur-xavier/diamond.js/issues' },
+30 silly publish   readme: 'ERROR: No README data found!',
+30 silly publish   homepage: 'https://github.com/arthur-xavier/diamond.js',
+30 silly publish   _id: 'diamond@0.1.1',
+30 silly publish   _shasum: '68e393abb8c981a6af0a9e1affab1818342931cd',
+30 silly publish   _from: '.' }
+31 verbose url raw diamond
+32 verbose url resolving [ 'https://registry.npmjs.org/', './diamond' ]
+33 verbose url resolved https://registry.npmjs.org/diamond
+34 info trying registry request attempt 1 at 23:04:20
+35 http PUT https://registry.npmjs.org/diamond
+36 http 403 https://registry.npmjs.org/diamond
+37 verbose headers { date: 'Fri, 01 Aug 2014 02:04:21 GMT',
+37 verbose headers   server: 'CouchDB/1.5.0 (Erlang OTP/R14B04)',
+37 verbose headers   'content-type': 'application/json',
+37 verbose headers   'cache-control': 'max-age=60',
+37 verbose headers   'content-length': '1957',
+37 verbose headers   'accept-ranges': 'bytes',
+37 verbose headers   via: '1.1 varnish',
+37 verbose headers   'x-served-by': 'cache-jfk1026-JFK',
+37 verbose headers   'x-cache': 'MISS',
+37 verbose headers   'x-cache-hits': '0',
+37 verbose headers   'x-timer': 'S1406858661.425563,VS0,VE438',
+37 verbose headers   'keep-alive': 'timeout=10, max=50',
+37 verbose headers   connection: 'Keep-Alive' }
+38 error publish Failed PUT 403
+39 error Error: forbidden user: arthur-xavier not authorized to modify diamond
+39 error Changed: description "stdin + arguments composite stream (aka <> or diamond)" -> "MVC web framework"
+39 error Changed: dist-tags.latest "0.0.2" -> "0.1.1"
+39 error Added: versions.0.1.1
+39 error Changed: readme "diamond\u000a=======\u000a\u000astdin + arguments composite stream\u000a\u000a\u000a# install\u000a```\u000anpm install diamond\u000a```\u000a\u000a# example\u000a\u000apipe stdin and content of files from command line to stdout:\u000a```js\u000avar diamond = require('diamond');\u000a\u000adiamond().pipe(process.stdout);\u000a```\u000a\u000alisten for 'next' event:\u000a\u000a```js\u000avar diamond = require('diamond');\u000a\u000avar stream = diamond();\u000a\u000astream.on('data', function(d) {\u000a     console.log('data:', d);\u000a});\u000astream.on('end', function() {\u000a     console.log('end');\u000a});\u000astream.on('next', function() {\u000a    console.log('next stream!', stream.name);\u000a});\u000a\u000a```\u000a\u000aby default, `process.argv.slice(2)` is used as list of files. You can pass your own list:\u000a\u000a```js\u000avar program = require('commander');\u000avar diamond = require('diamond');\u000a\u000aprogram\u000a  .version('0.0.1')\u000a  .option('-c', 'Count chars')\u000a  .option('-l,', 'Count lines')\u000a  .parse(process.argv);\u000a\u000avar stream = diamond(program.args);\u000a// ...\u000a```\u000a" -> "ERROR: No README data found!"
+39 error Changed: time.modified "2013-03-18T06:57:38.826Z" -> "2014-08-01T02:03:17.436Z"
+39 error Added: time.0.1.1
+39 error Changed: author.name "Andrey Sidorov" -> "Arthur Xavier"
+39 error Changed: author.email "sidorares@yandex.ru" -> "xavier@dcc.ufmg.br"
+39 error Changed: repository.url "git://github.com/sidorares/diamond.git" -> "https://github.com/arthur-xavier/diamond.js.git"
+39 error Deleted: keywords
+39 error Added: homepage
+39 error Added: bugs
+39 error Added: _attachments: diamond
+39 error     at RegClient.<anonymous> (/usr/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:274:14)
+39 error     at Request._callback (/usr/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:212:65)
+39 error     at Request.self.callback (/usr/lib/node_modules/npm/node_modules/request/request.js:123:22)
+39 error     at Request.emit (events.js:98:17)
+39 error     at Request.<anonymous> (/usr/lib/node_modules/npm/node_modules/request/request.js:893:14)
+39 error     at Request.emit (events.js:117:20)
+39 error     at IncomingMessage.<anonymous> (/usr/lib/node_modules/npm/node_modules/request/request.js:844:12)
+39 error     at IncomingMessage.emit (events.js:117:20)
+39 error     at _stream_readable.js:929:16
+39 error     at process._tickCallback (node.js:419:13)
+40 error If you need help, you may report this *entire* log,
+40 error including the npm and node versions, at:
+40 error     <http://github.com/npm/npm/issues>
+41 error System Linux 3.13.0-32-generic
+42 error command "/usr/bin/node" "/usr/bin/npm" "publish"
+43 error cwd /home/xavier/workspace/diamond
+44 error node -v v0.10.29
+45 error npm -v 1.4.14
+46 verbose exit [ 1, true ]
