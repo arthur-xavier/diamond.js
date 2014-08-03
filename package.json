@@ -1,7 +1,7 @@
 {
   "name": "diamond.js",
   "description": "MVC web framework",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": {
     "name": "Arthur Xavier",
     "email": "xavier@dcc.ufmg.br"
@@ -10,22 +10,19 @@
     "type": "git",
     "url": "https://github.com/arthur-xavier/diamond.js.git"
   },
-
   "scripts": {
     "test": "./node_modules/.bin/mocha test/test.coffee --compilers coffee:coffee-script/register",
     "prepublish": "cake build"
   },
-
   "main": "index.js",
   "license": "MIT",
-
   "directories": {
     "test": "test"
   },
-
   "devDependencies": {
     "coffee-script": "^1.7.1",
     "mocha": "^1.21.3",
+    "mongojs": "^0.13.1",
     "request": "^2.39.0",
     "should": "^4.0.4"
   },

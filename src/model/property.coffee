@@ -17,10 +17,10 @@ class Property extends require '../class'
         value = if typeof @default == "function" then @default.call(@model) else @default
       else
         #console.log "Setting property #{@name} from type #{@type}"
-        value = if @type.prototype? then new @type else @type()
-    else 
+        value = @type()
+    else
       #console.log "Setting property #{@name} from value #{value}"
-      value = if @type.prototype? then new @type(value) else @type(value)
+      value = @type value
     value
 
 

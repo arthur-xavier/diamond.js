@@ -10,8 +10,11 @@ app = new Diamond ->
   new (require "#{dependencies}/controllers/wineController")
 
   @router = new Diamond.Router @server, require "#{dependencies}/routes"
-  
-app.listen ->
-  console.log "Server listening on port #{@port}"
+
+  @db = new (require "#{dependencies}/helpers/mongodb")
+  require "#{dependencies}/db"
+
+  @listen ->
+    console.log "Server listening on port #{@port}"
 
 module.exports = app

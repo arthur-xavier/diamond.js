@@ -2,8 +2,10 @@
 
 express = require 'express'
 
-class Diamond
+class Diamond extends require './singleton'
+  
   constructor: (callback) ->
+    super
     @server = express()
     @port = process.env.PORT || 3000
 
@@ -14,7 +16,6 @@ class Diamond
     callback.call @ if callback?
 
   @Router: require './router'
-  @Model: require './model'
   @Controller: require './controller'
 
 module.exports = Diamond
