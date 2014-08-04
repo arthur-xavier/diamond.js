@@ -15,6 +15,7 @@ class Diamond extends require './singleton'
     @server.listen @port
     callback.call @ if callback?
 
+  @Model: require './model'
   @Router: require './router'
   @Controller: require './controller'
 
