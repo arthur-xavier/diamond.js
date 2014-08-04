@@ -9,14 +9,14 @@ class Diamond extends require './singleton'
     @server = express()
     @port = process.env.PORT || 3000
 
+    Diamond.Model = require './model'
+    Diamond.Router = require './router'
+    Diamond.Controller = require './controller'
+
     callback.call @ if callback?
 
   listen: (callback) ->
     @server.listen @port
     callback.call @ if callback?
-
-  @Model: require './model'
-  @Router: require './router'
-  @Controller: require './controller'
 
 module.exports = Diamond
