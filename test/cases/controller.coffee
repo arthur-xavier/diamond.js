@@ -21,3 +21,11 @@ describe 'Controller', ->
       done()
 
     request 'http://localhost:3000/hello/param/world'
+
+  it 'should send json', (done) ->
+    TestController.getInstance().param = ->
+      @json test: @params.test
+
+    request 'http://localhost:3000/hello/param/world', (err, response, body) ->
+      JSON.parse(body).should.eql test: "world"
+      done()

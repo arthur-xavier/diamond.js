@@ -2,24 +2,21 @@
 1 verbose cli [ '/usr/bin/node',
 1 verbose cli   '/usr/bin/npm',
 1 verbose cli   'version',
-1 verbose cli   'minor',
+1 verbose cli   'patch',
 1 verbose cli   '-m',
-1 verbose cli   'Database storage models. MongoDB storage test helper' ]
+1 verbose cli   'Controller response methods' ]
 2 info using npm@1.4.14
 3 info using node@v0.10.29
 4 verbose node symlink /usr/bin/node
 5 error Error: Git working directory not clean.
-5 error D npm-debug.log
+5 error M npm-debug.log
 5 error M package.json
-5 error M src/application.coffee
-5 error M src/model.coffee
+5 error M src/controller.coffee
 5 error D src/model/index.coffee
-5 error M src/model/property.coffee
 5 error D src/model/storage/mongodb.coffee
+5 error M src/router.coffee
 5 error D src/storage/mongodb.coffee
-5 error M test/app/app.coffee
-5 error M test/app/models/wine.coffee
-5 error M test/cases/model.coffee
+5 error M test/cases/controller.coffee
 5 error     at /usr/lib/node_modules/npm/lib/version.js:98:35
 5 error     at ChildProcess.exithandler (child_process.js:645:7)
 5 error     at ChildProcess.emit (events.js:98:17)
@@ -31,7 +28,7 @@
 6 error including the npm and node versions, at:
 6 error     <http://github.com/npm/npm/issues>
 7 error System Linux 3.13.0-32-generic
-8 error command "/usr/bin/node" "/usr/bin/npm" "version" "minor" "-m" "Database storage models. MongoDB storage test helper"
+8 error command "/usr/bin/node" "/usr/bin/npm" "version" "patch" "-m" "Controller response methods"
 9 error cwd /home/xavier/workspace/diamond
 10 error node -v v0.10.29
 11 error npm -v 1.4.14

@@ -38,11 +38,11 @@ class Router
 
   @route: (options) ->
     {controller, action} = options
-    (req = {}, res = {}) ->
+    (req, res) ->
       controller.request = req or {}
       controller.response = res or {}
-      controller.body = req.body or {}
-      controller.params = req.params or {}
-      controller[action].call controller
+      controller.body = controller.request.body or {}
+      controller.params = controller.request.params or {}
+      controller[action].call controller, req, res
 
 module.exports = Router
