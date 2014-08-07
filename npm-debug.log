@@ -9,8 +9,8 @@
 3 info using node@v0.10.30
 4 verbose node symlink /usr/bin/node
 5 error Error: Git working directory not clean.
-5 error D npm-debug.log
-5 error M src/model/storage.coffee
+5 error M .gitignore
+5 error M npm-debug.log
 5 error     at /usr/lib/node_modules/npm/lib/version.js:91:33
 5 error     at ChildProcess.exithandler (child_process.js:646:7)
 5 error     at ChildProcess.emit (events.js:98:17)
