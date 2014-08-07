@@ -1,18 +1,11 @@
 0 info it worked if it ends with ok
-1 verbose cli [ '/usr/bin/node',
-1 verbose cli   '/usr/bin/npm',
-1 verbose cli   'version',
-1 verbose cli   'patch',
-1 verbose cli   '-m',
-1 verbose cli   'Add before save method to model properties' ]
+1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'version', 'patch' ]
 2 info using npm@1.4.21
 3 info using node@v0.10.30
 4 verbose node symlink /usr/bin/node
 5 error Error: Git working directory not clean.
-5 error D npm-debug.log
+5 error M npm-debug.log
 5 error D src/model/index.coffee
-5 error M src/model/property.coffee
-5 error M src/model/storage.coffee
 5 error D src/model/storage/mongodb.coffee
 5 error D src/storage/mongodb.coffee
 5 error     at /usr/lib/node_modules/npm/lib/version.js:91:33
@@ -26,7 +19,7 @@
 6 error including the npm and node versions, at:
 6 error     <http://github.com/npm/npm/issues>
 7 error System Linux 3.13.0-32-generic
-8 error command "/usr/bin/node" "/usr/bin/npm" "version" "patch" "-m" "Add before save method to model properties"
+8 error command "/usr/bin/node" "/usr/bin/npm" "version" "patch"
 9 error cwd /home/xavier/workspace/diamond
 10 error node -v v0.10.30
 11 error npm -v 1.4.21
