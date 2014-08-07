@@ -4,9 +4,6 @@ class Validation
 
   constructor: (@model, @name, options = {}) ->
     @pattern = options.pattern
-    if @pattern and !@model.properties[@name].type.prototype.match
-      throw "Pattern validation on property not of type String"
-      @pattern = null
     @presence = options.presence
     @function = options.function
     @function = options if typeof options == "function"
