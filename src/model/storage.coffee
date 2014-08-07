@@ -17,12 +17,16 @@ class Storage
 
   save: (callback) ->
     if !@hasError 
+      for k, v of @properties when @constructor.properties[k]
+        @constructor.properties[k].save v if @constructor.properties[k].save
       Diamond.getInstance().db.save @, callback
     else
       callback @errors
 
   update: (options, callback) ->
     if !@hasError
+      for k, v of @properties when @constructor.properties[k]
+        @constructor.properties[k].save v if @constructor.properties[k].save
       Diamond.getInstance().db.update @, options, @properties, callback
     else
       callback @errors

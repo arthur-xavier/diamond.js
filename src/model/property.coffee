@@ -6,6 +6,7 @@ class Property extends require '../class'
     @type = options.type or String
     @default = options.default
     @value = options.value
+    @save = options.save
 
   set: (model, value) ->
     if @value?
