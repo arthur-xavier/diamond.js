@@ -1,7 +1,7 @@
 {
   "name": "diamond.js",
   "description": "MVC web framework",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "author": {
     "name": "Arthur Xavier",
     "email": "xavier@dcc.ufmg.br"
