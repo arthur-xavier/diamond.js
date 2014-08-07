@@ -4,7 +4,10 @@ Model = require "#{root}/model"
 
 class Wine extends Model
   #
-  @property 'name', type: String
+  @collection: 'wines'
+  
+  #
+  @property 'name', type: String, save: (name) -> name.toUpperCase()
   @property 'description', type: String
   @property 'country', type: String
   @property 'region', type: String

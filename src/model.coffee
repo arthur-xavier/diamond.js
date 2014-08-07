@@ -21,7 +21,8 @@ class Model extends require './class'
   #
   constructor: (options = {}) ->
     @properties = new Object
-    @collection = @constructor.collection or @constructor.name.toLowerCase()
+    @collection = @constructor.collection
+    throw "Undefined collection for model #{@constructor.name}" if !@collection?
     @hasError = false
     for k, p of @constructor.properties
       @properties[k] = p.set @, options[k]

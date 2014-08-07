@@ -66,7 +66,7 @@ describe 'Model', ->
 
     it 'saves', (done) ->
       new Wine({
-        name: "DINASTIA VIVANCO",
+        name: "Dinastia Vivanco",
         year: "2008",
         country: "Spain",
         region: "Rioja",

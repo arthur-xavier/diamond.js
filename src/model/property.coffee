@@ -15,7 +15,7 @@ class Property extends require '../class'
     if !value
       if @default?
         #console.log "Setting property #{@name} from default #{@default}"
-        value = if typeof @default == "function" then @default.call(@model) else @default
+        value = if typeof @default == "function" then @default.call @model else @default
       else
         #console.log "Setting property #{@name} from type #{@type}"
         value = @type()
