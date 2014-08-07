@@ -8,11 +8,11 @@ class Router
     callback.call @ if callback?
 
   resource: (name, param = "id") ->
-    @get "#{@prefix}/#{name}", "#{name}#index"
-    @get "#{@prefix}/#{name}/:#{param}", "#{name}#show"
-    @post "#{@prefix}/#{name}", "#{name}#create"
-    @put "#{@prefix}/#{name}/:#{param}", "#{name}#update"
-    @delete "#{@prefix}/#{name}/:#{param}", "#{name}#destroy"
+    @get "/#{name}", "#{name}#index"
+    @get "/#{name}/:#{param}", "#{name}#show"
+    @post "/#{name}", "#{name}#create"
+    @put "/#{name}/:#{param}", "#{name}#update"
+    @delete "/#{name}/:#{param}", "#{name}#destroy"
 
   prefix: ''
   route: (prefix, callback) ->

@@ -8,24 +8,24 @@ class MongoDB
     @db = mongojs 'mongodb://localhost:27017/winedb'
 
   all: (model, callback) ->
-    @db.collection("#{model.name}s".toLowerCase()).find callback
+    @db.collection(model.collection).find callback
 
   count: (model, callback) ->
-    @db.collection("#{model.name}s".toLowerCase()).count callback
+    @db.collection(model.collection).count callback
 
   find: (model, options, callback) ->
-    @db.collection("#{model.name}s".toLowerCase()).find options, callback
+    @db.collection(model.collection).find options, callback
 
   findById: (model, id, callback) ->
-    @db.collection("#{model.name}s".toLowerCase()).findOne {_id: mongojs.ObjectId id}, callback
+    @db.collection(model.collection).findOne {_id: mongojs.ObjectId id}, callback
 
   save: (model, callback) ->
-    @db.collection("#{model.name}s".toLowerCase()).save model.properties, callback
+    @db.collection(model.collection).save model.properties, callback
 
   update: (model, options, set, callback) ->
-    @db.collection("#{model.name}s".toLowerCase()).update options, {$set: set}, {multi: true}, callback
+    @db.collection(model.collection).update options, {$set: set}, {multi: true}, callback
 
   remove: (model, options, callback) ->
-    @db.collection("#{model.name}s".toLowerCase()).remove options, callback
+    @db.collection(model.collection).remove options, callback
 
 module.exports = MongoDB

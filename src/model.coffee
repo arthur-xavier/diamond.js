@@ -21,7 +21,8 @@ class Model extends require './class'
   #
   constructor: (options = {}) ->
     @properties = new Object
-    @name = @constructor.name
+    @collection = @constructor.collection or @constructor.name.toLowerCase()
+    @hasError = false
     for k, p of @constructor.properties
       @properties[k] = p.set @, options[k]
 
@@ -41,10 +42,14 @@ class Model extends require './class'
 
   #
   validate: (options = {}) ->
-    errors = {}
+    @hasError = false
+    @errors = new Object
     for k, v of @constructor.validations
       error = v.validate @get(k), options[k]
-      errors[k] = error if error
-    errors
+      @hasError = true if error
+      @errors[k] = error if error
+    @errors = if @hasError then @errors else null
+    @errors
+
 
 module.exports = Model

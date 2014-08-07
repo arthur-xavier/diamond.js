@@ -16,10 +16,16 @@ class Storage
     Diamond.getInstance().db.findById @, id, callback
 
   save: (callback) ->
-    Diamond.getInstance().db.save @, callback
+    if !@hasError 
+      Diamond.getInstance().db.save @, callback
+    else
+      callback @errors
 
   update: (options, callback) ->
-    Diamond.getInstance().db.update @, options, @oroperties, callback
+    if !@hasError
+      Diamond.getInstance().db.update @, options, @properties, callback
+    else
+      callback @errors
 
   @update: (options, set, callback) ->
     Diamond.getInstance().db.update @, options, set, callback
