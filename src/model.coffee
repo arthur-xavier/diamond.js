@@ -10,6 +10,7 @@ class Model extends require './class'
   # model properties
   @properties: {}
   @property: (name, options) ->
+    @properties[name] = 0 # fix for validation within property definition (@ l.19)
     @properties[name] = new Property @, name, options
 
   # model validations

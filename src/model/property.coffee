@@ -7,6 +7,7 @@ class Property extends require '../class'
     @default = options.default
     @value = options.value
     @save = options.save
+    @model.validation @name, options.validation if options.validation?
 
   set: (model, value) ->
     if @value?
