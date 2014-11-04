@@ -8,14 +8,14 @@ class Model extends require './class'
   @extends require './model/storage'
 
   # model properties
-  @properties: {}
   @property: (name, options) ->
+    @properties = @properties or new Object
     @properties[name] = 0 # fix for validation within property definition (@ l.19)
     @properties[name] = new Property @, name, options
 
   # model validations
-  @validations: {}
   @validation: (name, options) ->
+    @validations = @validations or new Object
     throw "No property named #{name}" if !@properties[name]?
     @validations[name] = new Validation @, name, options
 
