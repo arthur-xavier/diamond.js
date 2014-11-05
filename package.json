@@ -1,7 +1,7 @@
 {
   "name": "diamond.js",
   "description": "MVC web framework",
-  "version": "0.2.18",
+  "version": "0.2.19",
   "author": {
     "name": "Arthur Xavier",
     "email": "xavier@dcc.ufmg.br"
@@ -20,13 +20,13 @@
     "test": "test"
   },
   "devDependencies": {
-    "coffee-script": "^1.7.1",
     "mocha": "^1.21.3",
     "mongojs": "^0.13.1",
     "request": "^2.39.0",
     "should": "^4.0.4"
   },
   "dependencies": {
-    "express": "~4.2.0"
+    "express": "~4.2.0",
+    "coffee-script": "^1.8.0"
   }
 }

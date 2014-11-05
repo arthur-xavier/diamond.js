@@ -13,6 +13,8 @@ class Diamond extends require './singleton'
     Diamond.Router = require './router'
     Diamond.Controller = require './controller'
 
+    @db = new (require './database')
+
     callback.call @ if callback?
 
   listen: (callback) ->
