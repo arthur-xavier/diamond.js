@@ -3,6 +3,7 @@
 should = require 'should'
 
 Wine = require "#{dependencies}/models/wine"
+Region = require "#{dependencies}/models/region"
 
 describe 'Model', ->
 
@@ -18,18 +19,22 @@ describe 'Model', ->
       @wine.get('year').should.equal new Date().getFullYear()
 
     it 'should have computed properties', ->
-      @wine = new Wine name: 'DOMAINE DU BOUSCAT', region: 'Bordeaux', country: 'France'
-      @wine.get('location').should.equal "Bordeaux, France"
+      @region = new Region name: 'Bordeaux', country: 'France'
+      @region.get('location').should.equal "Bordeaux, France"
 
     it 'should have custom methods', ->
-      @wine.toString().should.equal "'DOMAINE DU BOUSCAT 2014' from Bordeaux, France"
+      @region.toString().should.equal "Bordeaux, France"
+
+    it 'should have other models as properties', ->
+      @wine = new Wine name: 'DOMAINE DU BOUSCAT', region: @region
+      @wine.get('region.location').should.equal "Bordeaux, France"
   
   #   
   describe 'validations', ->
     #
     it 'should validate for presence', ->
-      new Wine().validate().country.should.equal true
-      should.not.exist new Wine(country: "France").validate().country
+      new Wine().validate().region.should.equal true
+      should.not.exist new Wine(region: new Region country: 'France').validate().country
 
     it 'should validate for RegExp patterns', ->
       new Wine(name: "1NV4L1D W1N3").validate().name.should.equal true
@@ -45,8 +50,8 @@ describe 'Model', ->
     it 'finds all', (done) ->
       Wine.all (err, wines) ->
         throw err if err
-        wines[0].name.should.equal "CHATEAU DE SAINT COSME"
-        wines[1].name.should.equal "LAN RIOJA CRIANZA"
+        wines[1].name.should.equal "CHATEAU DE SAINT COSME"
+        wines[0].name.should.equal "LAN RIOJA CRIANZA"
         done()
 
     it 'counts', (done) ->
@@ -65,24 +70,24 @@ describe 'Model', ->
       # works from assertion. Find by query works
 
     it 'saves', (done) ->
+      rioja = new Region name: 'Rioja', country: 'Spain'
       new Wine({
         name: "Dinastia Vivanco",
         year: "2008",
-        country: "Spain",
-        region: "Rioja",
+        region: rioja,
         description: "Whether enjoying a fine cigar or a nicotine patch, don't pass up a taste of this hearty Rioja, both smooth and robust.",
       }).save()
       Wine.find name: "DINASTIA VIVANCO", (err, wines) ->
         throw err if err
-        wines[0].location.should.equal "Rioja, Spain"
+        wines[0].region.should.equal "Rioja, Spain"
         done()
 
     it 'updates', (done) ->
-      Wine.update {country: "Spain"},
-        {country: "Italy", region: "Tuscany", location: "Tuscany, Italy"}, 
+      Wine.update {region: "Rioja, Spain"},
+        {region: "Tuscany, Italy"}, 
         (err) ->
           throw err if err
-          Wine.find location: "Tuscany, Italy", (err, wines) ->
+          Wine.find region: "Tuscany, Italy", (err, wines) ->
             throw err if err
             wines[0].name.should.equal "LAN RIOJA CRIANZA"
             wines[1].name.should.equal "DINASTIA VIVANCO"
@@ -95,3 +100,16 @@ describe 'Model', ->
           wines[0].name.should.equal "LAN RIOJA CRIANZA"
           wines[1].name.should.equal "DINASTIA VIVANCO"
           done()
+
+    it 'fetches models', (done) ->
+      verify = (wines) ->
+        wine.region.country.should.equal "Italy" for wine in wines
+        done()
+
+      Wine.find region: "Tuscany, Italy", (err, wines) ->
+        throw err if err
+        wines.forEach (wine, i) ->
+          Region.find location: wine.region, (err, regions) ->
+            throw err if err
+            wines[i].region = regions[0]
+            verify wines if i == wines.length - 1

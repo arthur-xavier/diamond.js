@@ -7,25 +7,25 @@ class MongoDB
   constructor: (callback) ->
     @db = mongojs 'mongodb://localhost:27017/winedb'
 
-  all: (model, callback) ->
-    @db.collection(model.collection).find callback
+  all: (collection, callback) ->
+    @db.collection(collection.collection or collection).find callback
 
-  count: (model, callback) ->
-    @db.collection(model.collection).count callback
+  count: (collection, callback) ->
+    @db.collection(collection.collection or collection).count callback
 
-  find: (model, options, callback) ->
-    @db.collection(model.collection).find options, callback
+  find: (collection, model, callback) ->
+    @db.collection(collection.collection or collection).find model, callback
 
-  findById: (model, id, callback) ->
-    @db.collection(model.collection).findOne {_id: mongojs.ObjectId id}, callback
+  findById: (collection, id, callback) ->
+    @db.collection(collection.collection or collection).findOne {_id: mongojs.ObjectId id}, callback
 
-  save: (model, callback) ->
-    @db.collection(model.collection).save model.properties, callback
+  save: (collection, model, callback) ->
+    @db.collection(collection).save model.properties or model, callback
 
-  update: (model, options, set, callback) ->
-    @db.collection(model.collection).update options, {$set: set}, {multi: true}, callback
+  update: (collection, model, set, callback) ->
+    @db.collection(collection).update model, {$set: set}, {multi: true}, callback
 
-  remove: (model, options, callback) ->
-    @db.collection(model.collection).remove options, callback
+  remove: (collection, model, callback) ->
+    @db.collection(collection.collection or collection).remove model, callback
 
 module.exports = MongoDB

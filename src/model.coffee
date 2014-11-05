@@ -30,7 +30,10 @@ class Model extends require './class'
 
   #
   get: (name) ->
-    @properties[name]
+    m = @
+    name.split('.').forEach (p) ->
+      m = m.properties[p]
+    m
   set: (name, value) ->
     @properties[name] = @getField(name).set @, value
   has: (name) ->
