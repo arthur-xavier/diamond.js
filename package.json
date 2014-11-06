@@ -6,6 +6,20 @@
     "name": "Arthur Xavier",
     "email": "xavier@dcc.ufmg.br"
   },
+  "keywords": [
+    "express",
+    "framework",
+    "web",
+    "rest",
+    "restful",
+    "mvc",
+    "router",
+    "model",
+    "controller",
+    "app",
+    "tower",
+    "rails"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/arthur-xavier/diamond.js.git"
@@ -13,6 +27,9 @@
   "scripts": {
     "test": "./node_modules/.bin/mocha test/test.coffee --compilers coffee:coffee-script/register",
     "prepublish": "cake build"
+  },
+  "bin": {
+    "diamond": "./bin/diamond.js"
   },
   "main": "index.js",
   "license": "MIT",

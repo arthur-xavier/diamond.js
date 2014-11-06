@@ -7,8 +7,8 @@ class Region extends Model
   @collection: 'regions'
   
   #
-  @property 'name', type: String
-  @property 'country', type: String
+  @property 'name', String
+  @property 'country', String
 
   # computed property
   @property 'location', type: String, value: -> "#{@get 'name'}, #{@get 'country'}"

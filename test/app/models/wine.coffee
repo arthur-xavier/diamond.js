@@ -7,10 +7,10 @@ class Wine extends Model
   @collection: 'wines'
   
   #
-  @property 'name', type: String, save: (name) -> name.toUpperCase()
-  @property 'description', type: String
-  @property 'year', type: Number, default: -> new Date().getFullYear()
-  @property 'region', type: String, save: (region) ->
+  @property 'name', String, save: (name) -> name.toUpperCase()
+  @property 'description', String
+  @property 'year', Number, default: -> new Date().getFullYear()
+  @property 'region', String, save: (region) ->
     (region.get? 'location') or region
   
   @validation 'name', pattern: /^[A-Z\s]+$/

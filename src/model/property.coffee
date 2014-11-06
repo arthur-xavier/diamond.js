@@ -2,8 +2,9 @@
 
 class Property extends require '../class'
 
-  constructor: (@model, @name, options = {}) ->
-    @type = if typeof options == "function" then options else options.type or String
+  constructor: (@model, @name, type, options) ->
+    options = type or {} if !options
+    @type = if typeof type == "function" then type else type.type or String
     @default = options.default
     @value = options.value
     @save = options.save
