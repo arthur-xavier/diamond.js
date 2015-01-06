@@ -1,6 +1,7 @@
 # test/cases/application.coffee
 
 global.app = require "#{dependencies}/app"
+should = require 'should'
 
 describe 'Application', ->
 

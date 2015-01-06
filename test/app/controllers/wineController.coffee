@@ -1,6 +1,7 @@
 # test/app/controllers/wineController.coffee
 
 Controller = require "#{root}/controller"
+Wine = require "#{dependencies}/models/wine"
 
 class WineController extends Controller
 

@@ -3,8 +3,12 @@
 Diamond = require "#{root}/application"
 path = require 'path'
 
+express = require 'express'
+
 app = new Diamond ->
+  #
   @port = 3000
+  @server = express()
 
   new (require "#{dependencies}/controllers/testController")
   new (require "#{dependencies}/controllers/wineController")
@@ -14,7 +18,7 @@ app = new Diamond ->
   @db = new (require "#{dependencies}/helpers/mongodb")
   require "#{dependencies}/db"
 
-  @listen ->
+  @server.listen @port, ->
     console.log "Server listening on port #{@port}"
 
 module.exports = app

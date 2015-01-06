@@ -33,7 +33,7 @@ class Router
   # 
   action: (action) ->
     [controller, action] = action.split('#')
-    #controller =  controller.charAt(0).toUpperCase() + controller.slice(1) + "Controller"]
+    #controller = controller.charAt(0).toUpperCase() + controller.slice(1) + "Controller"]
     {controller: Controller.controllers[controller].getInstance(), action: action}
 
   @route: (options) ->

@@ -89,16 +89,16 @@ describe 'Model', ->
           throw err if err
           Wine.find region: "Tuscany, Italy", (err, wines) ->
             throw err if err
-            wines[1].name.should.equal "LAN RIOJA CRIANZA"
-            wines[0].name.should.equal "DINASTIA VIVANCO"
+            wines[0].name.should.equal "LAN RIOJA CRIANZA"
+            wines[1].name.should.equal "DINASTIA VIVANCO"
             done()
 
     it 'removes', (done) ->
       Wine.remove {region: "Southern Rhone, France"}, (err) ->
         throw err if err
         Wine.all (err, wines) ->
-          wines[1].name.should.equal "LAN RIOJA CRIANZA"
-          wines[0].name.should.equal "DINASTIA VIVANCO"
+          wines[0].name.should.equal "LAN RIOJA CRIANZA"
+          wines[1].name.should.equal "DINASTIA VIVANCO"
           done()
 
     it 'fetches models', (done) ->
