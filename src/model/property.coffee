@@ -28,7 +28,7 @@ class Property extends require '../class'
     else if value.constructor != @type
       #value = if @type.prototype? then new @type value else @type value
       #value = if @type.prototype and !isPrimitive(@type) then new @type value else @type value
-      value = @type value
+      value = if typeof value == "array" then @type.apply @, value else @type value
 
     value
 

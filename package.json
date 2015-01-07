@@ -1,7 +1,7 @@
 {
   "name": "diamond.js",
   "description": "Generic MVC web framework",
-  "version": "0.2.25",
+  "version": "0.2.26",
   "author": {
     "name": "Arthur Xavier",
     "email": "xavier@dcc.ufmg.br"
