@@ -7,12 +7,13 @@ class Router
   constructor: (@server, callback) ->
     callback.call @ if callback?
 
-  resource: (name, param = "id") ->
+  resource: (name, callback) ->
     @get "/#{name}", "#{name}#index"
-    @get "/#{name}/:#{param}", "#{name}#show"
+    @get "/#{name}/:#{name}", "#{name}#show"
     @post "/#{name}", "#{name}#create"
-    @put "/#{name}/:#{param}", "#{name}#update"
-    @delete "/#{name}/:#{param}", "#{name}#destroy"
+    @put "/#{name}/:#{name}", "#{name}#update"
+    @delete "/#{name}/:#{name}", "#{name}#destroy"
+    @route name, callback if callback?
 
   prefix: ''
   route: (prefix, callback) ->
@@ -34,6 +35,7 @@ class Router
   action: (action) ->
     [controller, action] = action.split('#')
     #controller = controller.charAt(0).toUpperCase() + controller.slice(1) + "Controller"]
+    throw "No Controller named " + controller + "Controller" if !Controller.controllers[controller].getInstance()?
     {controller: Controller.controllers[controller].getInstance(), action: action}
 
   @route: (options) ->
