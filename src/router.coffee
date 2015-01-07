@@ -13,7 +13,7 @@ class Router
     @post "/#{name}", "#{name}#create"
     @put "/#{name}/:#{name}", "#{name}#update"
     @delete "/#{name}/:#{name}", "#{name}#destroy"
-    @route name, callback if callback?
+    @route "/#{name}", callback if callback?
 
   prefix: ''
   route: (prefix, callback) ->
