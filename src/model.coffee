@@ -35,7 +35,7 @@ class Model extends require './class'
       m = m.properties[p]
     m
   set: (name, value) ->
-    @properties[name] = @getField(name).set @, value
+    @properties[name] = @getProperty(name).set @, value
   has: (name) ->
     @properties[name]?
 
