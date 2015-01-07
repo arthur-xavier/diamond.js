@@ -28,6 +28,10 @@ describe 'Model', ->
     it 'should have other models as properties', ->
       @wine = new Wine name: 'DOMAINE DU BOUSCAT', region: @region
       @wine.get('region.location').should.equal "Bordeaux, France"
+
+    it 'should allow relationships', ->
+      @wine = new Wine name: 'DOMAINE DU BOUSCAT', region: { name: 'Bordeaux', country: 'France' }
+      @wine.get('region.location').should.equal "Bordeaux, France"
   
   #   
   describe 'validations', ->

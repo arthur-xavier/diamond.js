@@ -17,13 +17,13 @@ wines = [
   {
     name: "CHATEAU DE SAINT COSME"
     year: "2009"
-    region: "Southern Rhone, France"
+    region: regions[0]
     description: "The aromas of fruit and spice give one a hint of the light drinkability of this lovely wine, which makes an excellent complement to fish dishes.",
   },
   {
     name: "LAN RIOJA CRIANZA"
     year: "2006"
-    region: "Rioja, Spain"
+    region: regions[1]
     description: "A resurgence of interest in boutique vineyards has opened the door for this excellent foray into the dessert wine market. Light and bouncy, with a hint of black truffle, this wine will not fail to tickle the taste buds.",
   }
 ]

@@ -1,5 +1,7 @@
 # src/model/property.coffee
 
+isPrimitive = (t) -> t == Boolean or t == Number or t == String 
+
 class Property extends require '../class'
 
   constructor: (@model, @name, type, options) ->
@@ -20,12 +22,12 @@ class Property extends require '../class'
         value = if typeof @default == "function" then @default.call model else @default
       else
         #console.log "Setting property #{@name} from type #{@type}"
-        value = if @type.prototype then new @type else @type()
+        value = if @type.prototype and !isPrimitive(@type) then new @type else @type()
     else if value.properties?
       return value
     else if value.constructor != @type
       #value = if @type.prototype? then new @type value else @type value
-      value = @type value
+      value = if @type.prototype and !isPrimitive(@type) then new @type value else @type value
 
     value
 

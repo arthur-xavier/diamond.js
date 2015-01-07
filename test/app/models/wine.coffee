@@ -1,6 +1,7 @@
 # test/app/models/wine.coffee
 
 Model = require "#{root}/model"
+Region = require "#{dependencies}/models/region"
 
 class Wine extends Model
   #
@@ -10,8 +11,7 @@ class Wine extends Model
   @property 'name', String, save: (name) -> name.toUpperCase()
   @property 'description', String
   @property 'year', Number, default: -> new Date().getFullYear()
-  @property 'region', String, save: (region) ->
-    (region.get? 'location') or region
+  @property 'region', Region, save: (region) -> (region.get? 'location') or region
   
   @validation 'name', pattern: /^[A-Z\s]+$/
   @validation 'region', presence: true
