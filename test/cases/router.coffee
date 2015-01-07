@@ -27,6 +27,10 @@ describe 'Router', ->
     TestController.getInstance().update = -> done()
     request.put 'http://localhost:3000/test/1'
     
-  it 'should define sub-routes', (done) ->
+  #it 'should define sub-routes', (done) ->
+  #  TestController.getInstance().test = -> done()
+  #  request 'http://localhost:3000/hello/world/test'
+
+  it 'should define sub-routes in resources', (done) ->
     TestController.getInstance().test = -> done()
-    request 'http://localhost:3000/hello/world/test'
+    request 'http://localhost:3000/test/sub/test'

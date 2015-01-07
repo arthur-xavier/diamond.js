@@ -2,7 +2,8 @@
 
 module.exports = ->
   @resource 'wine'
-  @resource 'test'
+  @resource 'test', ->
+    @get '/sub/test', 'test#test'
 
   @get '/', 'test#test'
 

@@ -8,12 +8,13 @@ class Router
     callback.call @ if callback?
 
   resource: (name, callback) ->
-    @get "/#{name}", "#{name}#index"
-    @get "/#{name}/:#{name}", "#{name}#show"
-    @post "/#{name}", "#{name}#create"
-    @put "/#{name}/:#{name}", "#{name}#update"
-    @delete "/#{name}/:#{name}", "#{name}#destroy"
-    @route "/#{name}", callback if callback?
+    @route "/#{name}", ->
+      callback.call @ if callback?
+      @get "/", "#{name}#index"
+      @get "/:#{name}", "#{name}#show"
+      @post "/", "#{name}#create"
+      @put "/:#{name}", "#{name}#update"
+      @delete "/:#{name}", "#{name}#destroy"
 
   prefix: ''
   route: (prefix, callback) ->
@@ -24,12 +25,16 @@ class Router
   #
   get: (route, action) ->
     @server.get "#{@prefix}#{route}", Router.route(@action action)
+    console.log "GET #{@prefix}#{route}", action
   post: (route, action) ->
     @server.post "#{@prefix}#{route}", Router.route(@action action)
+    console.log "POST #{@prefix}#{route}", action
   put: (route, action) ->
     @server.put "#{@prefix}#{route}", Router.route(@action action)
+    console.log "PUT #{@prefix}#{route}", action
   delete: (route, action) ->
     @server.delete "#{@prefix}#{route}", Router.route(@action action)
+    console.log "DELETE #{@prefix}#{route}", action
 
   # 
   action: (action) ->
