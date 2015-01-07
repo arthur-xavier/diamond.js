@@ -11,7 +11,9 @@ class Wine extends Model
   @property 'name', String, save: (name) -> name.toUpperCase()
   @property 'description', String
   @property 'year', Number, default: -> new Date().getFullYear()
-  @property 'region', Region, save: (region) -> (region.get? 'location') or region
+  #@property 'region', Region.type 'location'
+  
+  @hasOne 'region', Region, key: 'location'
   
   @validation 'name', pattern: /^[A-Z\s]+$/
   @validation 'region', presence: true

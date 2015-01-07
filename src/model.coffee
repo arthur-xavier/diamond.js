@@ -13,6 +13,14 @@ class Model extends require './class'
     @properties[name] = 0 # fix for validation within property definition (@ l.19)
     @properties[name] = new Property @, name, type, options
 
+  @hasOne: (name, type, options = {}) ->
+    @properties = @properties or new Object
+    options.key or= "_id"
+    @properties[name] = 0
+    @properties[name] = new Property @, name, ((args...) -> new type args...), save: (m) -> (m.get? options.key) or m
+
+  @hasMany: -> # TODO
+
   # model validations
   @validation: (name, options) ->
     @validations = @validations or new Object
